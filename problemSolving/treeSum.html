@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  treeSum=function(nums){
+    nums.sort(function(a,b){
+      return a-b
+    })
+
+    const result=[]
+
+
+    if(nums.length===0 || nums.length===1){
+      return nums
+    }else{
+      for(let i=0;i<nums.length;i++){
+       if(i>0 && nums[i]===nums[i-1]) continue
+        for(let j=i+1;j<nums.length;j++){
+      if(j>i+1 && nums[j]===nums[j-1]) continue
+          for(let k=j+1;k<nums.length;k++){
+            const output=[]
+            if(k>j+1 && nums[k]===nums[k-1]) continue
+
+            if(nums[i]+nums[j]+nums[k]===0 && j!==k && i!==j && i!==k){
+
+              output.push(nums[i])
+              output.push(nums[j])
+              output.push(nums[k])
+              result.push(output)
+
+
+            }
+
+          }
+
+        }
+
+
+      }
+    }
+    return result
+  }
+  treeSumOptimalWay=function(nums){
+    nums.sort(function(a,b){
+        return a-b
+    })
+     const result =[]
+    for(let i=0;i<nums.length-2;i++){
+        if(i>0 && nums[i]===nums[i-1]) continue
+        let target=0-nums[i]
+        let left=i+1
+        let right=nums.length-1
+
+        while(right>left){
+              let sum=nums[left]+nums[right]
+            if(sum>target){
+                right--
+            }
+              else  if(sum<target){
+                left++
+            }else{
+                result.push([nums[i],nums[left],nums[right]])
+                while(nums[right]===nums[right-1]) right--
+                while(nums[left]===nums[left+1]) left++
+                right--
+                left++
+            }
+        }
+    }
+    return result
+  }
+  var threeSum = function(nums) {
+      nums.sort(function(a,b){
+          return a-b
+      })
+       const result =[]
+      for(let i=0;i<nums.length-2;i++){
+          if(i>0 && nums[i]===nums[i-1]) continue
+          let target=0-nums[i]
+          let left=i+1
+          let right=nums.length-1
+          let sum=nums[left]+nums[right]
+          while(right>left){
+              if(sum>target){
+                  right--
+              }
+                else  if(sum<target){
+                  left++
+              }else{
+                  result.push([nums[i],nums[left],nums[right]])
+                  while(nums[right]===nums[right-1]) right--
+                  while(nums[left]===nums[left+1]) left++
+                  right--
+                  left++
+              }
+          }
+      }
+      return result
+  };
+  var threeSum = function(nums) {
+  nums.sort(function(a,b){
+      return a-b
+  })
+   const result =[]
+  for(let i=0;i<nums.length-2;i++){
+      if(i>0 && nums[i]===nums[i-1]) continue
+      let target=0-nums[i]
+      let left=i+1
+      let right=nums.length-1
+      let sum=nums[left]+nums[right]
+      while(right>left){
+          if(sum>target){
+              right--
+          }
+            else  if(sum<target){
+              left++
+          }else{
+              result.push([nums[i],nums[left],nums[right]])
+              while(nums[right]===nums[right-1]) right--
+              while(nums[left]===nums[left+1]) left++
+              right--
+              left++
+          }
+      }
+  }
+  return result
+};
+var threeSum = function(nums) {
+    nums.sort(function(a,b){
+        return a-b
+    })
+     const result =[]
+    for(let i=0;i<nums.length-2;i++){
+        if(i>0 && nums[i]===nums[i-1]) continue
+        let target=0-nums[i]
+        let left=i+1
+        let right=nums.length-1
+        let sum=nums[left]+nums[right]
+        while(right>left){
+            if(sum>target){
+                right--
+            }
+              else  if(sum<target){
+                left++
+            }else{
+                result.push([nums[i],nums[left],nums[right]])
+                while(nums[right]===nums[right-1]) right--
+                while(nums[left]===nums[left+1]) left++
+                right--
+                left++
+            }
+        }
+    }
+    return result
+};
+  console.log(treeSum([0]));
+</script>
