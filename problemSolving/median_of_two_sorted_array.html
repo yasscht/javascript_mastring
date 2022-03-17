@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  var findMedianSortedArrays=function(nums1,nums2){
+    let median
+    const array=nums1.concat(nums2)
+    array.sort(function(a,b){
+      return a-b
+    })
+
+   if(array.length%2===1){
+     median=array[Math.floor(array.length/2)]
+   }else{
+     median=(array[array.length/2]+array[(array.length/2)-1])/2
+   }
+   return median
+};
+console.log(findMedianSortedArrays([1,2],[3,4]));
+</script>
