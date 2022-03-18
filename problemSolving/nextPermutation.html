@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+function isSorted(arr){
+    let second_index;
+	for(let first_index = 0; first_index < arr.length; first_index++){
+  	  second_index = first_index + 1;
+      if(arr[second_index] - arr[first_index] > 0) return false;
+    }
+    return true;
+}
+
+
+var nextPermutation = function(nums) {
+  if(!isSorted(nums)){
+    let peak
+
+    for(let i=nums.length;i>0;i--){
+      if(i==0){
+        peak=0
+      }
+      if(i>0 && nums[i-1]<nums[i]){
+        peak=i
+        break
+      }
+    }
+ for(let i=nums.length-1;i>0;i--){
+   if(nums[i]>nums[peak-1]){
+     const tmp=nums[i]
+     nums[i]=nums[peak-1]
+     nums[peak-1]=tmp
+     break
+   }
+ }
+ let start=peak
+ let end=nums.length-1
+ while(start<end){
+   const tmp=nums[start]
+   nums[start]=nums[end]
+   nums[end]=tmp
+   start++
+   end--
+ }
+ return nums
+}else{
+  return nums.sort(function(a,b){
+    return a-b
+  })
+}
+
+};
+console.log(nextPermutation([3,2,1]));
+</script>
