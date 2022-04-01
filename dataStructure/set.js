@@ -62,20 +62,24 @@ class mySet {
     });
     return intersection;
   }
+  //isSubset : test if a set is a subset of an other set
+
+  isSubset(newset) {
+    return this.values.every(function (element) {
+      return newset.has(element);
+    });
+  }
 }
 
 const set = new mySet();
 const newset = new mySet();
 console.log(set.add(1));
 console.log(set.add(2));
-console.log(set.add(2));
+
 console.log(newset.add(1));
 console.log(newset.add(2));
 console.log(newset.add(3));
-console.log(set.add("yassine"));
+
 console.log(set.setValues());
-console.log(set.remove(1));
-console.log("after");
-console.log(set.setValues());
-console.log("union", set.union(newset));
-console.log("intersec", set.intersection(newset));
+
+console.log(set.isSubset(newset));
