@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  var findMin = function(nums) {
+    let left=0;
+    let min=Infinity
+    let right=nums.length-1;
+    while(right>=left){
+      let middle=Math.floor((right+left)/2)
+      if(nums[left] <= nums[middle]){
+        if(nums[left] <=nums[right] && nums[left]<min){
+          min=nums[left]
+          break
+        }else{
+          left=middle+1
+        }
+      }else{
+        right=middle
+      }
+    }
+    return min
+};
+console.log(findMin([11,13,15,17]));
+</script>
