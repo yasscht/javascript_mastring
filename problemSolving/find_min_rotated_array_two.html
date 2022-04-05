@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  var findMin = function(nums) {
+  let start = 0
+  let end = nums.length-1
+
+  while(start < end){
+       console.log(nums)
+    if (nums[start] <= nums[start+1]){
+
+        start++
+
+    } else {
+
+        return nums[start+1]
+    }
+
+    if (nums[end] >= nums[end-1]){
+        end--
+
+    } else {
+
+        return nums[end]
+
+    }
+  }
+
+  return nums[0]
+};
+console.log(findMin([1,2,2,2,0,1,1]));
+</script>
