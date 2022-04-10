@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  var isValid = function(s) {
+   const map=new Map(
+                      [['(',')'],
+                      ['{','}'],
+                      ['[',']']]
+                    )
+  const array=[]
+  for(let char of s){
+    if(map.get(char)){
+      array.push(map.get(char))
+    }else{
+      if(array.pop()!==char) return false
+    }
+  }
+return (!array.length)
+};
+console.log(isValid("([()])"));
+</script>
