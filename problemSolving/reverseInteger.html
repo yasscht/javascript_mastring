@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+var reverse = function(x) {
+
+      let string =x.toString()
+      let result=""
+    let  n=string.length
+      while(n>=0 && string.charAt(n)!=="-"){
+
+         result+=string.charAt(n)
+
+
+n--
+    }
+    result = string.charAt(0)==="-"?string.charAt(0)+result:result
+
+
+    return result>2**31-1 || result<2**-31?0:result
+
+};
+console.log(reverse(-123));
+console.log(parseInt(1534236469));
+</script>
